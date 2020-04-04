@@ -7,7 +7,15 @@ let scrabbleScore = require('./scrabbleScore');
  * Use your implementation of scrabbleScore.
  */
 function avgScrabbleScore(words) {
-  // This is your job. :)
+  let separatingWords = words.split()
+  let wordsArray = [];
+  let eachWord = wordsArray[i];
+  let sumArray = [];
+
+  for (eachWord in words){
+
+  }
+
 }
 
 if (require.main === module) {
