@@ -11,14 +11,18 @@ let avgScrabbleScore = require('./avgScrabbleScore');
  * sample-words.txt.
  */
 function avgScrabbleScoreFromFile(fileName) {
-  // This is your job. :)
+  let text = fs.readFileSync(`./${fileName}`, 'utf8')
+  let words = text.slice(0,text.length - 1).split('\n')
+  avgScore = avgScrabbleScore(words)
+  return avgScore
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for avgScrabbleScoreFromFile:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(avgScrabbleScoreFromFile('test2.txt'));
+  console.log(avgScrabbleScoreFromFile('test.txt'));
+
 }
 
 module.exports = avgScrabbleScoreFromFile;

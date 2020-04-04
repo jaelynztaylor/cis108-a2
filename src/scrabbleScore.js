@@ -24,7 +24,23 @@ let SCRABBLE_TILE_SCORES = {
  */
 
 function scrabbleScore(word) {
-  // This is your job. :)
+  let workingWord = word.toLowerCase();
+  let separateLetters = workingWord.split("");
+  let score = 0
+  let counter = 0
+  let key = Object.keys(SCRABBLE_TILE_SCORES);
+  let value = Object.values(SCRABBLE_TILE_SCORES);
+
+  while (counter != workingWord.length){
+    for (index in key){
+      while (key[index] === separateLetters[counter]){
+        score += value[index]
+        counter++
+      }
+    }
+  }
+  console.log('The score is: ' + score)
+  return score
 }
 
 if (require.main === module) {
@@ -32,6 +48,9 @@ if (require.main === module) {
 
   console.log(scrabbleScore('aaa') === 3);
   console.log(scrabbleScore('aaa') === scrabbleScore('AaA'));
+  console.log(scrabbleScore('ocean'));
+  console.log(scrabbleScore('TiFFany'));
+  console.log(scrabbleScore('fuck') === scrabbleScore('FUCK'));
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?
